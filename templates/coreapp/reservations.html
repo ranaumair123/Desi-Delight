@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{% static 'assets/img/logosimple.png' %}" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/reservations.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2 class="text-center alert alert-dark">Reservations</h2>
+
+<div class="container">
+  <div class="inner-box" style="border: 2rem;">
+    <div>
+        <strong>
+            <h5>Username:   {{request.user.username}}</h5>
+            <h5>Email:  {{request.user.email}}</h5>
+        </strong>
+    </div>
+  </div>
+</div>
+    
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" id="errorAlert" role="alert">
+      {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <table class="table table-dark">
+        <h4 class="text-center alert alert-dark">User Reservations</h4>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Contact Person</th>
+            <th scope="col">Contact Person Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Date</th>
+            <th scope="col">Reservation status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        {% if reservations %}
+          {% for record in reservations %}
+        <tbody>
+            
+          <tr>
+            <td>{{record.id}}</th>
+            <td>{{record.reservation_name}}</td>
+            <td>{{record.reservation_email}}</td>
+            <td>{{record.reservation_phone}}</td>
+            <td>{{record.reservation_date}}</td>
+            <td>{{record.get_reservation_status_display}}</td>
+            <td>
+                <form action="{% url 'coreapp:cancel-reservation' %}" method="POST" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="reservation_id" value="{{ record.id }}">
+                    <input type="submit" class="btn btn-danger btn-sm" value="Cancel">
+                </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        {% else %}
+        <h5 class="text-center alert alert-danger">No Records</h5>
+        {% endif %}
+
+
+      </table> 
+      <a href="{% url 'coreapp:index' %}" class="btn btn-dark">Back to Website</a>
+        
+      
+            
+</div>   
+</body>
+</html>

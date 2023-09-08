@@ -1,0 +1,626 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Desi Delights</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/logosimple.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+        <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 11AM - 23PM</span></i>
+      </div>
+
+      <div class="languages d-none d-md-flex align-items-center">
+        <ul>
+          {% if user.is_authenticated %}
+          <li><i class="fa fa-user-o"></i> {{user.username}}</i></li>
+          <li><a href="{% url 'authusers:logout'%}"><i class="fa fa-sign-out"></i>logout</a></li>
+          <li><a href="{% url 'coreapp:reservation-listing' %}"><i class="fa fa-user-plus"></i>Reservations</a></li>
+          {% else %}
+          <li><a href="{% url 'authusers:sign-in'%}"><i class="fa fa-user-o"></i>login</a></li>
+          <li><a href="{% url 'authusers:sign-up'%}"><i class="fa fa-user-plus"></i>Sign Up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+
+  <header id="header" class="fixed-top d-flex align-items-cente">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="#hero">Desi Delights</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#hero" class="logo me-auto me-lg-0"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
+          {% comment %} <li><a class="nav-link scrollto" href="#specials">Specials</a></li> {% endcomment %}
+          {% comment %} <li><a class="nav-link scrollto" href="#events">Events</a></li> {% endcomment %}
+          {% comment %} <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li> {% endcomment %}
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+
+
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" id="errorAlert" role="alert">
+      {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+  </header><!-- End Header -->
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Welcome to <span>Desi Delights</span></h1>
+          <h2>Delivering great food for more than 18 years!</h2>
+
+          <div class="btns">
+            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+          </div>
+        </div>
+        {% comment %} <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative"
+          data-aos="zoom-in" data-aos-delay="200">
+          <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="glightbox play-btn"></a>
+        </div> {% endcomment %}
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+              <img src="{% static 'assets/img/about.jpg' %}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Welcome to DESI Delights Food Restaurant, where tradition meets culinary excellence</h3>
+            <p class="fst-italic">
+              Our menu is a journey through the vibrant world of Indian cuisine, where each dish is a masterpiece crafted with care. From classic favorites to regional specialties, our extensive offerings cater to diverse palates.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Fresh, high-quality ingredients</li>
+              <li><i class="bi bi-check-circle"></i> Warm and inviting ambiance</li>
+              <li><i class="bi bi-check-circle"></i> Vegan, vegetarian, and gluten-free options</li>
+            </ul>
+            <p>
+              At DESI Delights, our experienced chefs use only the finest ingredients to create dishes that delight your senses. Our welcoming atmosphere sets the stage for memorable gatherings, whether it's a romantic dinner or a special event.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Why Us</h2>
+          <p>Why Choose Our Restaurant</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box" data-aos="zoom-in" data-aos-delay="100">
+              <span>01</span>
+              <h4>Authentic Pakistani flavors</h4>
+              <p>Discover a culinary journey through Pakistan with our diverse menu of traditional and regional specialties</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="200">
+              <span>02</span>
+              <h4>Fresh, quality ingredients </h4>
+              <p>Our skilled chefs use the finest ingredients to craft mouthwatering dishes that ignite your taste buds. We delivers the Quality Taste.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="300">
+              <span>03</span>
+              <h4> Welcoming ambiance</h4>
+              <p>Enjoy a warm and inviting atmosphere perfect for intimate dinners, family gatherings, and special occasions.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Menu</h2>
+          <p>Check Our Tasty Menu</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="menu-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-Desi">Desi</li>
+              <li data-filter=".filter-Deserts">Deserts</li>
+              <li data-filter=".filter-specialty">Specialty</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-6 menu-item filter-Desi">
+            <img src="{% static 'assets/img/menu/B.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Biryani</a><span>$5.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fragrant rice dish cooked with spices and your choice of chicken, lamb, or vegetables.
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-Desi">
+            <img src="{% static 'assets/img/menu/S.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Saag (Spinach)</a><span>$3.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Creamy spinach cooked with spices and served with roti or naan.
+            </div>
+          </div>
+
+          
+          <div class="col-lg-6 menu-item filter-Desi">
+            <img src="{% static 'assets/img/menu/nqn.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Peshawari Naan</a><span>$3.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Naan bread stuffed with nuts, coconut, and raisins for a sweet twist.
+            </div>
+          </div>
+          
+          <div class="col-lg-6 menu-item filter-specialty">
+            <img src="{% static 'assets/img/menu/CQ.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Chapli Kebabs</a><span>$2.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Spiced ground meat patties, pan-fried and served with chutney.
+            </div>
+          </div>
+
+
+          <div class="col-lg-6 menu-item filter-Desi">
+            <img src="{% static 'assets/img/menu/AQ.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Aloo Keema</a><span>$7.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Ground meat and potato curry with a blend of spices for a hearty meal.
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-Desi">
+            <img src="{% static 'assets/img/menu/sk.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Seekh Kebabs</a><span>$7.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Flavorful skewers of minced meat, herbs, and spices, grilled to perfection.
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-Deserts">
+            <img src="{% static 'assets/img/menu/GJ.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Gulab Jamun</a><span>$8.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Sweet, deep-fried milk dumplings soaked in sugar syrup for dessert.
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <img src="{% static 'assets/img/menu/K.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Chicken Karahi</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Chicken cooked in a wok-like karahi with tomatoes, green chilies, and spices.
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-Desi">
+            <img src="{% static 'assets/img/menu/N.png' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Nihari</a><span>$4.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Slow-cooked beef stew with aromatic spices, typically served for breakfast.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Menu Section -->
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Reservation</h2>
+          <p>Book a Table</p>
+        </div>
+
+        <form action="{% url 'coreapp:make_reservation' %}" method="post" class="php-email-form" novalidate>
+          {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-4 col-md-6 form-group">
+                <input type="text" name="{{form.reservation_name.name}}" class="form-control" placeholder="Your Name">
+                <span class="badge badge-danger">{{ form.reservation_name.errors |striptags }}</span>
+              </div>
+
+
+              <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="{{form.reservation_email.name}}"
+                  placeholder="Your Email">
+                  <span class="badge badge-danger">{{ form.reservation_email.errors|striptags}}</span>
+              </div>
+
+
+              <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                <input type="text" class="form-control" name="{{form.reservation_phone.name}}" placeholder="Your Phone">
+                <span class="badge badge-danger">{{ form.reservation_phone.errors| striptags }}</span>
+              </div>
+
+
+              <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input type="date" name="{{form.reservation_date.name}}" class="form-control" placeholder="Date">
+                <span class="badge badge-danger">{{ form.reservation_date.errors| striptags }}</span>
+              </div>
+
+              <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input type="time" name="{{form.reservation_time.name}}" class="form-control" placeholder="Time">
+                <span class="badge badge-danger">{{ form.reservation_time.errors|striptags }}</span>
+              </div>
+
+              <div class="col-lg-4 col-md-6 form-group mt-3">
+                <input type="number" class="form-control" name="{{form.reservation_no_of_people.name}}"
+                  placeholder="# of people">
+                <span class="badge badge-danger">{{ form.reservation_no_of_people.errors | striptags }}</span>
+              </div>
+
+              <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                <select name="table" class="form-control"
+                  style="background-color:#0C0B09; color: #625b4b; border-color: #625b4b; border-radius: 0; margin-top: 15px;">
+                  <option value="" selected disabled>Select an option</option>
+                  {% for choice in table %}
+                  {% for val in choice.values %}
+                  <option value="{{val}}" style="background: transparent;">{{ val }}</option>
+                  {% endfor %}
+                  {% endfor %}
+                </select>
+                <span class="badge badge-danger">{{ form.table.errors | striptags }}</span>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="{{form.reservation_text_message.name}}" rows="5"
+                  placeholder="Message"></textarea>
+                <span class="badge badge-danger">{{ form.reservation_text_message.errors | striptags }}</span>
+              </div>
+              <div class="text-center"><button type="submit">Book a Table</button></div>
+
+            </div>
+        </form>
+      </div>
+    </section><!-- End Book A Table Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>What they're saying about us</p>
+        </div>
+
+        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  This restaurant offers incredible flavors that transport me back to my homeland, accompanied by warm hospitality that makes every visit special.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  The amazing food here feels like a comforting taste of home, combined with an extraordinary dining experience thanks to the friendly staff and cozy ambiance.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  A hidden gem in the city, this restaurant serves authentic and mouthwatering dishes that always leave me craving for more.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  I've been a loyal customer for years, and the consistent exceptional quality and taste of their dishes keep me coming back for more memorable meals.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  A true culinary delight, this restaurant's diverse flavors and inviting ambiance make it the perfect place to explore the magic of Desi cuisine.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Contact Us</p>
+        </div>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="open-hours">
+                <i class="bi bi-clock"></i>
+                <h4>Open Hours:</h4>
+                <p>
+                  Monday-Saturday:<br>
+                  11:00 AM - 2300 PM
+                </p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>desidelights@mail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="{% url 'coreapp:contact-us' %}" method="POST" class="php-email-form" novalidate>
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="{{form2.visited_user_name.name}}" class="form-control"  placeholder="Your Name">
+                  <span class="badge badge-danger">{{ form.visited_user_name.errors|striptags }}</span>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email"  name="{{form2.visited_user_email.name}}"  class="form-control" id="email" placeholder="Your Email" >
+                  <span class="badge badge-danger">{{ form2.visited_user_email.errors|striptags }}</span>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="{{form2.visited_user_email_subject.name}}" id="subject" placeholder="Subject" >
+                <span class="badge badge-danger">{{ form2.visited_user_email_subject.errors|striptags }}</span>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="{{form2.visited_user_phone.name}}" id="subject" placeholder="Phone #" >
+                <span class="badge badge-danger">{{ form2.visited_user_phone.errors|striptags }}</span>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="{{form2.visited_user_message.name}}" rows="8" placeholder="Message"></textarea>
+                <span class="badge badge-danger">{{ form2.visited_user_message.errors|striptags }}</span>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>DESI DELIGHTS</h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> desidelights@mail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Subscribe to our news letter to get our latest updates.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Desi Delights</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
