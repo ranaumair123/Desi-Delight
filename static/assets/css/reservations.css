@@ -1,0 +1,7 @@
+.table-container {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh; /* Make the container full viewport height */
+    background-color: black;
+}
