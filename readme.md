@@ -35,7 +35,10 @@ The application includes the following features:
 ## Admin Panel
 
 1. Access the admin panel by navigating to https://desi-delight-21f933635c8b.herokuapp.com/admin.
+  <img width="782" alt="Screenshot 2023-09-13 at 11 11 29" src="https://github.com/ranaumair123/Desi-Delight/assets/121701280/4a187516-22a7-4a68-a317-3b2ff4ab4499">
+
 2. Admin Login Credentials Username: siteadmin@gmail.com Password: admin
+<img width="1425" alt="Screenshot 2023-09-13 at 11 11 06" src="https://github.com/ranaumair123/Desi-Delight/assets/121701280/268754f1-bf33-4208-9d15-d98400a4388a">
 
 Once the development server is running and you have accessed the application, you can perform the following actions:
 
