@@ -1,6 +1,8 @@
 # Desi Delights Restaurant
 
-Welcome to the Desi Delights Restaurant Django project!
+Welcome to the Desi Delights Resturant. Desi Delights is a resturant in Lahore Pakistan. The resturant serves authentic south asian food. Desi delights is well know in the City and beyond. All of tourist from the country and abroad come to Desi Delights on daily basis, which means booking a table online could save alot of hassle for resturant owner and customers.
+
+<img width="1440" alt="Screenshot 2023-09-13 at 11 00 12" src="https://github.com/ranaumair123/Desi-Delight/assets/121701280/7e969cf9-55e6-4e07-996f-f7b3c8e347ff">
 
 ## Project Overview
 
