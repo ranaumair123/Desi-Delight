@@ -55,25 +55,47 @@ Once the development server is running and you have accessed the application, yo
   
 ## Frameworks, Libraries and Programs
 1.Django is the main high level Python web framework used to speed up the process of building this application.
+
 2.Django Allauth is used to set up user authentication on the site.
+
 3.Django Crispy Forms is used to initialise bootstrap form classes in all forms in the project.
+
 4.Django Countries is installed for the countries select field on the order form.
+
 5.Gunicorn is used for deploying the project to Heroku.
+
 6.Bootstrap is used to form the layout of the website and make it responsive. It is also used to add components to the project.
+
 7.Stripe is used as a payment processing platform for the project.
+
 8.Amazon AWS is used to store the static files and media files belonging to the project.
+
 9.Postgres is the database used by the deployed project.
+
 10.Google Fonts is used to implement the primary font of Archivo and the secondary font of Montserrat.
+
 11.Font Awesome is used to add icons to the website.
+
 12.Coolor is used to develop a colour scheme for the project.
+
 13.Flaticon is used to create and style a shortcut icon/favicon for the project.
+
 14.TinyPNG is used to compress the imagery memory size of the repository to help improve the speed of the website.
+
 15.Pinetools was used to resize wireframes.
+
 16.Hover.css is used to apply a colour change to certain elements on the page when hovered over with the mouse.
+
 17.Balsamiq is used to create the wireframing for the project.
+
 18.Quick Database Diagrams is used to create the database schema for the project.
+
 19.Autoprefixer is used to add web prefixes to all the CSS files in the project so the styling renders properly on all browsers.
+
 20.Markdown TOC has been used to create a table of contents for the README.md and TESTING.md files.
+
 21.Git is used for version control. Code produced in the Gitpod terminal is committed and then pushed to GitHub.
+
 22.GitHub is used to store the project code pushed from Git.
+
 23.Heroku has been used to deploy the project.
