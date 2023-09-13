@@ -14,12 +14,6 @@ from pathlib import Path
 import os
 
 
-if os.path.isfile("env.py"):
-    import env
-
-    os.environ.get("postgres://tyrbcfry:pw9TkQUDcTQ6HJeAJ2VRb5DI_1qui9ye@mel.db.elephantsql.com/tyrbcfry")
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -52,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,20 +79,16 @@ WSGI_APPLICATION = 'resturant_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
-DATABASE_URL = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

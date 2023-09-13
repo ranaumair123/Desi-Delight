@@ -10,7 +10,7 @@ def main():
     
     """Run administrative tasks."""
     dotenv.load_dotenv()
-    os.environ.setdefault('DATABASE_URL', '//tyrbcfry:***@mel.db.elephantsql.com/tyrbcfry')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'resturant_project.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
