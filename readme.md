@@ -7,6 +7,7 @@ Welcome to the Desi Delights Resturant. Desi Delights is a resturant in Lahore P
 ## Project Overview
 
 Desi Delights Restaurant is a web application built with Django, designed to provide online booking and reservation functionality for a restaurant. The project utilizes the Django-Jazzmin admin panel for enhanced administration capabilities and customizes the authentication system to authenticate users with their email addresses.
+<img width="1440" alt="Screenshot 2023-09-13 at 11 06 22" src="https://github.com/ranaumair123/Desi-Delight/assets/121701280/a126a9c5-28e8-42e1-a5b0-f40a29b60b88">
 
 
 
@@ -19,7 +20,7 @@ The application includes the following features:
 - User cancellation of reservations
 - Email notifications upon submitting the contact form
 
-## Tools and Technologies
+## Technologies Used
 
 - Python
 - Django
@@ -33,8 +34,7 @@ The application includes the following features:
 
 ## Admin Panel
 
-1. Access the admin panel by navigating to 'http://localhost:8000/admin' in your web browser.
-
+1. Access the admin panel by navigating to https://desi-delight-21f933635c8b.herokuapp.com/admin.
 2. Admin Login Credentials Username: siteadmin@gmail.com Password: admin
 
 Once the development server is running and you have accessed the application, you can perform the following actions:
