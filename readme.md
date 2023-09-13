@@ -101,15 +101,11 @@ Once the development server is running and you have accessed the application, yo
 23.Heroku has been used to deploy the project.
 
 
-## Credits:
-# Code
+## Acknowledgements
+1.The Slack community for all their help and support.
+2.The Code Institute Tutor Support team for responding to any difficulty or query quickly and efficiently.
+3.My Mentor Gurjot Singh for his advice, guidance and incredible support.
+   
 
-The project was helped established by the Code Institute Tutorial Boutique Ado created by Chris Zielinski.
 
-Stack Overflow was used to prevent the telephone number from hyperlinking on mobile devices.
 
-Stack Overflow was used to remove asterisks from the contact page input field labels.
-
-W3 Schools helped with zooming in to a product image card ever so slightly.
-
-Stack Overflow was used to help timeout toasts and fade them out automatically after a few seconds.
