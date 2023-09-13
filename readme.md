@@ -20,9 +20,6 @@ The application includes the following features:
 - User cancellation of reservations
 - Email notifications upon submitting the contact form
 
-## Website features
-
-
 ## Technologies Used
 
 - Python
