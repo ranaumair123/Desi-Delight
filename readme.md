@@ -20,6 +20,14 @@ The application includes the following features:
 - User cancellation of reservations
 - Email notifications upon submitting the contact form
 
+## Website Features
+### Sign Up
+<img width="718" alt="Screenshot 2023-09-13 at 11 30 26" src="https://github.com/ranaumair123/Desi-Delight/assets/121701280/242639e1-526b-4c56-ab7f-67eb0bc941b7">
+
+User can sign up very easily 
+The resturant is based in Pakistan so you have to give Pakistan mobile number which is usually 11 digits.
+In the password section you have to choose a strong password which contains uppercase letters, numbers and symbols
+
 ## Technologies Used
 
 - Python
